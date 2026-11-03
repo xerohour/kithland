@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Kithland</title>
+  <meta name="description" content="A creature-keeping RPG on a pocket console that never existed. Free during the beta. Plays in your browser on phones and computers: no install, no account.">
+  <!-- the link preview (Reddit, X, Bluesky, Discord, Slack, iMessage, WhatsApp, Facebook): absolute URLs, so the same
+       build is right on every channel; the card picture (1200×630) is built with kithland.com (site/build.ts og-play.png) -->
+  <link rel="canonical" href="https://play.kithland.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kithland">
+  <meta property="og:title" content="Play Kithland">
+  <meta property="og:url" content="https://play.kithland.com/">
+  <meta property="og:description" content="A creature-keeping RPG on a pocket console that never existed. Free during the beta. Plays in your browser on phones and computers: no install, no account.">
+  <meta property="og:image" content="https://kithland.com/og-play.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Kithland logo over a spring meadow with six kith standing in the grass, and the words: Play free during the beta.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Play Kithland">
+  <meta name="twitter:description" content="A creature-keeping RPG on a pocket console that never existed. Free during the beta, in your browser: no install, no account.">
+  <meta name="twitter:image" content="https://kithland.com/og-play.png">
+  <meta name="twitter:image:alt" content="The Kithland logo over a spring meadow with six kith standing in the grass, and the words: Play free during the beta.">
+  <meta name="theme-color" content="#dfd9c1" media="(orientation: portrait) and (max-width: 699px), (orientation: landscape) and (max-height: 500px)">
+  <meta name="theme-color" content="#16181e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Kithland">
+  <!-- a home-screen app's status bar: opaque ("default"), so the page starts under it and runs to the screen's foot.
+       Not black-translucent: since iOS 26.1 that blurs and tints the page's top under the bar and leaves the web view
+       the bar's height short, iOS filling the strip under it (no CSS reaches either). iOS reads this when the app is
+       added to the home screen: an install from before keeps the translucent bar (shell.css "home-screen app"). -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- painted before shell.css arrives: the case colour instead of a white page (#console.shell-baked takes over).
+       The .edge strips: Safari 26 ignores theme-color and paints its status bar and the chin under its bottom toolbar
+       from position: fixed elements at those edges (else the root's background-color, else black): the case at both,
+       from the first paint (shell.css "Safari's bands"); theme-color says the same to older Safari and Android, and
+       colours a home-screen app's opaque status bar. -->
+  <style>
+    html, body { background: #dfd9c1; margin: 0; }
+    .edge { position: fixed; left: 0; right: 0; z-index: 2; pointer-events: none; }
+    .edge-top { top: 0; height: env(safe-area-inset-top); background: #dfd9c1; }
+    .edge-bottom { bottom: 0; height: 4px; background: #dfd9c1; }
+  </style>
+  
+  <!-- the baked console's pressed pictures: only their addresses (media="not all": never fetched from here; the build
+       still turns them into its asset files' names). src/shell/shell.ts baked loads them after the game's first frame, so
+       a first visit's game and art don't share the line with them -->
+  <link rel="preload" as="image" media="not all" href="./assets/dpad-tilts-jqh9evjc.webp" data-pic="dpad-tilts">
+  <link rel="preload" as="image" media="not all" href="./assets/face-down-6zhz7tw3.webp" data-pic="face-down">
+  <link rel="preload" as="image" media="not all" href="./assets/pill-down-5na92myf.webp" data-pic="pill-down">
+  <link rel="icon" href="./assets/icon-gd5snf3z.svg" type="image/svg+xml">
+<link rel="stylesheet" crossorigin href="./assets/index-dfxrekj6.css"><script fetchpriority="high" type="module" crossorigin src="./assets/index-ddcwzkb0.js"></script><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png"><meta name="kk-build" content="9d6141d0 release 2026-11-03T10:39:54Z"><link rel="modulepreload" href="./assets/index-s5j0re6x.js" crossorigin><link rel="modulepreload" href="./assets/game-br8s43av.js" crossorigin id="kk-game"><script>window.__KK_BUILD__={"hash":"9d6141d0","channel":"release","date":"2026-11-03T10:39:54Z"};window.__KK_ART__={"packs":[{"id":"core","atlas":"./assets/art-core-atlas-72446bf6cb.bin","models":"./assets/art-core-models-26c4b1b3ea.bin","figures":"./assets/art-core-figures-598e3ea5d7.bin"},{"id":"ch0","models":"./assets/art-ch0-models-f7bf188e23.bin","figures":"./assets/art-ch0-figures-c1fbf68b65.bin"},{"id":"ch1","models":"./assets/art-ch1-models-984ed4e369.bin","figures":"./assets/art-ch1-figures-6d591d26e1.bin"},{"id":"ch2","models":"./assets/art-ch2-models-57c7a9e31f.bin","figures":"./assets/art-ch2-figures-6b2b44ae2d.bin"},{"id":"ch3","models":"./assets/art-ch3-models-64e69fb136.bin","figures":"./assets/art-ch3-figures-f3a0897209.bin"},{"id":"ch4","models":"./assets/art-ch4-models-3485cd985c.bin","figures":"./assets/art-ch4-figures-74332e1fc5.bin"},{"id":"ch5","models":"./assets/art-ch5-models-db48ef15d2.bin","figures":"./assets/art-ch5-figures-feb64ca92d.bin"},{"id":"ch6","models":"./assets/art-ch6-models-c19db6b1d8.bin","figures":"./assets/art-ch6-figures-dde5329d15.bin"},{"id":"ch7","models":"./assets/art-ch7-models-1f8aa3e82d.bin","figures":"./assets/art-ch7-figures-f5c203bc5f.bin"},{"id":"ch8","models":"./assets/art-ch8-models-7b9cd8cffc.bin","figures":"./assets/art-ch8-figures-ff6b419e40.bin"},{"id":"ch9","models":"./assets/art-ch9-models-73f4760903.bin","figures":"./assets/art-ch9-figures-660d55b834.bin"},{"id":"ch10","models":"./assets/art-ch10-models-6341d21b87.bin","figures":"./assets/art-ch10-figures-68ab01b240.bin"}],"maps":{"lanternquay":[49,49,127],"lanternquay_hearth":[17,49,127],"lanternquay_market":[17,49,127],"lanternquay_house":[17,49,127],"lanternquay_arena":[17,49,127],"lanternquay_lighthouse":[17,49,127],"lanternquay_lighthouse_2":[17,17,127],"lanternquay_lighthouse_3":[17,17,127],"old_cisterns":[17,49,127],"old_cisterns_deep":[17,17,127],"stormseam":[25,25,127],"route5":[17,57,127],"brinemouth":[49,49,127],"brinemouth_hearth":[17,49,127],"brinemouth_shop":[17,49,127],"brinemouth_house":[1,49,127],"route6":[17,49,127],"route7":[49,49,249],"saltglass":[33,113,249],"saltglass_hearth":[33,33,249],"saltglass_shop":[33,33,249],"saltglass_glassworks":[33,33,249],"saltglass_furnace":[33,97,249],"route8":[97,97,249],"dry_mere":[33,113,249],"glass_dunes":[49,49,249],"thimblewick":[3,11,31],"thimblewick_home_1f":[3,7,31],"thimblewick_home_2f":[3,7,31],"thimblewick_house2":[3,3,31],"bramble_lab":[3,3,31],"bramble_lab_night":[3,3,31],"pell_cottage":[3,3,31],"route1":[11,15,31],"liltford":[7,15,31],"liltford_south":[7,15,31],"liltford_hearth":[5,7,31],"liltford_shop":[5,7,31],"liltford_post":[5,7,31],"liltford_house1":[3,7,31],"liltford_house2":[3,7,31],"liltford_guild":[5,7,31],"route2":[13,15,31],"thawseam_overlook":[13,13,31],"weir_mill":[5,15,31],"route3":[9,13,63],"cidergate":[9,27,63],"cidergate_hearth":[9,9,63],"cidergate_shop":[9,9,63],"cidergate_house1":[9,9,63],"cidergate_orchard":[9,9,63],"stile_lane":[11,11,63],"whitebough":[13,13,63],"thawseam":[13,13,63],"route4":[9,25,63],"dripstone_hollow":[9,9,63],"dripstone_hollow_2":[9,9,63],"wetherfold":[25,25,63],"wetherfold_hearth":[9,25,63],"wetherfold_house":[9,25,63],"route11":[193,193,497],"founders_hall":[65,193,497],"founders_hall_2":[65,65,497],"cinderseam":[97,97,497],"route9":[65,97,497],"route10":[65,65,497],"sheafton":[65,193,497],"sheafton_hearth":[65,65,497],"sheafton_shop":[65,65,497],"sheafton_granary":[65,65,497],"mallowfen":[65,65,497],"mallowfen_hearth":[65,65,497],"mallowfen_shop":[65,65,497],"mallowfen_cellar":[65,65,497],"route12":[385,449,993],"the_gloaming":[129,385,993],"gloaming_glade":[129,129,993],"windlestraw_mill":[129,193,993],"windlestraw_mill_2":[129,129,993],"windlestraw":[193,449,993],"windlestraw_hearth":[129,193,993],"windlestraw_shop":[129,193,993],"whiteseam":[385,385,1985],"route13":[257,385,1985],"relief_hut":[257,257,1985],"route14":[257,769,1985],"kettlecairn":[257,769,1985],"kettlecairn_hearth":[257,257,1985],"kettlecairn_shop":[257,257,1985],"eskholm":[769,1793,1985],"eskholm_infirmary":[257,769,1985],"route17":[257,769,1985],"kettlecairn_mines":[257,257,1985],"kettlecairn_cart_hall":[257,257,1985],"kettlecairn_heading":[257,769,1985],"coldcrown":[1537,1793,3969],"coldcrown_hearth":[513,1537,3969],"coldcrown_shop":[513,1537,3969],"coldcrown_echoes":[513,1537,3969],"hushfall_glacier":[513,1793,3969],"route15":[769,1793,3969],"meridian_landing":[1025,3585,3841],"meridian_hearth":[1025,1025,3841],"meridian_shop":[1025,1025,3841],"route16":[1537,1537,3841],"glasshouse":[1025,1025,3841],"glasshouse_vault":[1025,3073,3841],"glasshouse_2f":[1025,1025,3841],"glasshouse_3f":[1025,1025,3841],"frozen_crossing":[3073,3073,3841],"solstice_spire":[3073,3073,3585],"spire_foundry":[2049,3073,3585],"spire_1f":[2049,3073,3585],"spire_2f":[2049,2049,3585],"spire_3f":[2049,3073,3585],"spire_4f":[2049,3073,3585],"spire_turning":[2049,2049,3585],"spire_loft":[2049,2049,3585]},"keepers":{"r2_sedge":5,"r2_verity":5,"r2_jem":5,"r2_mott":5,"overlook_linnet":5,"mill_jory":5,"mill_wenna":5,"mill_teasel":5,"wb_tam":9,"wb_bryn":9,"wbring_maud":9,"wbring_oswin":9,"r3_davy":9,"r3_amos":9,"r3_bridget":9,"r3_ezra":9,"r3_seth":9,"r3_wat":9,"orchard_tilly":9,"orchard_silas":9,"orchard_agnes":9,"orchard_toby":9,"sl_elsie":9,"sl_horace":9,"r4_gabe":9,"r4_abel":9,"r4_lottie":9,"r4_joan":9,"r4_gideon":9,"r4_ruth":9,"r4_bartle":9,"r4_ida":9,"dh_hugh":9,"dh_ada":9,"dh_alfie":9,"dh_euan":9,"dh_mervyn":9,"dh_jude":9,"r5_vic":17,"r5_delia":17,"r5_reg":17,"r5_mabel":17,"r5_sonny":17,"r5_enoch":17,"r6_ollie":17,"r6_hilda":17,"r6_gracie":17,"r6_stan":17,"r6_florrie":17,"r6_nora":17,"r6_beryl":17,"r6_ernie":17,"r6_thelma":17,"r6_cyril":17,"lh_queenie":17,"lh_gus":17,"lh_sybil":17,"lh_ted":17,"lh_lavinia":17,"oc_bunty":17,"oc_dickon":17,"oc_una":17,"oc_monty":17,"oc_jethro":17,"oc_arnold":17,"oc_kezia":17,"oc_edith":17,"r7_demelza":33,"r7_petroc":33,"r7_trudgeon":33,"r7_hep":33,"r7_linus":33,"r7_ruan":33,"r7_mo":33,"r7_sammy":33,"r7_nancy":33,"r7_merryn":33,"r7_reuben":33,"r7_cecil":33,"r7_joss":33,"gw_dob":33,"gw_trystan":33,"gw_lark":33,"gw_saul":33,"r8_treloar":33,"r8_elowen":33,"r8_leopold":33,"r8_kenver":33,"r8_rosie":33,"r8_lamorna":33,"r8_harold":33,"r8_constance":33,"dm_bersaba":33,"dm_percy":33,"dm_hilary":33,"dm_delen":33,"dm_ignatius":33,"dm_walter":33,"gd_cador":33,"gd_ottilie":33,"gd_zennor":33,"gd_billy":33,"gd_senara":33,"gd_wendell":33,"r9_barty":65,"r9_marian":65,"r9_godfrey":65,"r9_mungo":65,"r9_saffy":65,"r9_elias":65,"r9_dora":65,"r9_orla":65,"mc_alys":65,"mc_kit":65,"mc_prosper":65,"r10_josiah":65,"r10_martha":65,"r10_ralph":65,"r10_obadiah":65,"r10_tabitha":65,"r10_lucan":65,"r10_wilbur":65,"r10_hamish":65,"r10_dulcie":65,"r10_elspeth":65,"r10_bram":65,"r10_jessamy":65,"r10_hugo":65,"r10_merrit":65,"r11_ivy":65,"r11_osric":65,"r11_mab":65,"r11_lorcan":65,"fh_haskett":65,"fh_peregrine":65,"fh_huck":65,"fh_rosamund":65,"r11_tobias":65,"r11_godwin":65,"r11_hattie":65,"r11_absalom":65,"r11_phineas":65,"wm_gilbert":129,"wm_dilys":129,"wm_elwyn":129,"wm_cosmo":129,"r12_philippa":129,"r12_sampson":129,"r12_thirza":129,"r12_sukey":129,"gl_quentin":129,"gl_rosalind":129,"gl_ebenezer":129,"gl_fenwick":129,"gl_prudence":129,"gl_morwenna":129,"gl_edmund":129,"r12_zillah":129,"r12_winifred":129,"r12_bertha":129,"r12_benedict":129,"r13_oddny":257,"r13_kettil":257,"r13_dagny":257,"r13_aldous":257,"r13_tyra":257,"r13_eilif":257,"r13_torvald":257,"r13_siv":257,"km_lisbet":257,"km_ulf":257,"km_wilfred":257,"km_ragna":257,"km_grimbold":257,"km_bragi":257,"kh_inga":257,"kh_edvin":257,"kh_sigrun":257,"kh_hakon":257,"r14_orm":257,"r14_asa":257,"r14_brynja":257,"r14_petronel":257,"r14_joar":257,"r14_arn":257,"r14_liv":257,"r14_ivar":257,"r14_ebba":257,"r14_gorm":257,"r14_frida":257,"r17_embla":257,"r17_toller":257,"r17_edric":257,"r16_arvid":1025,"r16_signe":1025,"r16_odalys":1025,"r16_corentin":1025,"r16_mabyn":1025,"r16_halvard":1025,"r16_perrin":1025,"r16_hywel":1025,"r16_tobit":1025,"r16_emrys":1025,"gh_primrose":1025,"gh_bede":1025,"gh_nell":1025,"gh_kitto":1025,"gh_rufus":1025,"gh_zeb":1025,"gh_blythe":1025,"gh_pascoe":1025,"gh_ansel":1025,"gh_wynne":1025,"gh_marina":1025,"gh_crispin":1025,"cypress_glasshouse":1025,"glasshouse_kensa":1025,"court_brannagh":2049,"court_vesper":2049,"court_celandine":2049,"sovereign_ottoline":2049}};(function preloadOpening(m, mask, saveKey) {
+  try {
+    const q = new URLSearchParams(location.search);
+    let open = q.get("map");
+    try {
+      if (open === null && !q.has("battle") && !q.has("title")) {
+        const raw = localStorage.getItem(saveKey), map = raw ? JSON.parse(raw)?.map : void 0;
+        open = typeof map === "string" ? map : null;
+      }
+    } catch {
+      open = null;
+    }
+    if (open !== null && !Object.prototype.hasOwnProperty.call(m.maps, open))
+      open = null;
+    const want = mask(m, open, q.get("battle")) | 1, add = (packs) => () => {
+      if (performance.getEntriesByName("kk:game").length)
+        return;
+      for (let i = 0;i < m.packs.length; i++) {
+        if (!(packs & 1 << i))
+          continue;
+        const p = m.packs[i];
+        for (const href of [p.atlas, p.models, p.figures]) {
+          if (!href)
+            continue;
+          const l = document.createElement("link");
+          l.rel = "preload";
+          l.as = "fetch";
+          l.type = "application/octet-stream";
+          l.crossOrigin = "anonymous";
+          l.setAttribute("fetchpriority", "low");
+          l.href = href;
+          document.head.appendChild(l);
+        }
+      }
+    }, after = (url, then) => {
+      if (!url || typeof PerformanceObserver > "u" || performance.getEntriesByName(url).length)
+        return then();
+      const seen = new PerformanceObserver((list) => {
+        if (!list.getEntriesByName(url).length)
+          return;
+        seen.disconnect();
+        then();
+      });
+      seen.observe({ type: "resource", buffered: !0 });
+    }, first = document.querySelector('script[type="module"][src]')?.src, game = document.getElementById("kk-game")?.href ?? first;
+    after(first, add(1));
+    if (want !== 1)
+      after(game, add(want & -2));
+  } catch {}
+})(window.__KK_ART__,function bootMask(m, opening, battle) {
+  let mask = 1;
+  if (opening !== null) {
+    const e = Object.prototype.hasOwnProperty.call(m.maps, opening) ? m.maps[opening] : void 0;
+    mask |= e ? e[0] : (1 << m.packs.length) - 1;
+  }
+  if (battle !== null) {
+    for (const k of battle.split(":").slice(1))
+      if (m.keepers && Object.prototype.hasOwnProperty.call(m.keepers, k))
+        mask |= m.keepers[k];
+  }
+  return mask;
+},"kithkeeper.save.v1");</script></head>
+<body>
+  <div id="console" class="console shell-baked">
+    <div class="area-screen">
+      <div class="glass"><div id="screen-wrap" class="screen-wrap"><canvas id="screen"></canvas></div></div>
+    </div>
+    <!-- the wordmark printed on the case: the title logo's letterforms (src/art/chars/logo.ts GLYPHS, KITH leaf green,
+         LAND sun yellow, the plum outline, the sprout on the I) as two inks, flat -->
+    <div class="brand" role="img" aria-label="Kithland Pocket"><svg class="brand-mark" viewBox="0 -0.5 161 34" aria-hidden="true"><defs><linearGradient id="kk-kith" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6ec5e"/><stop offset="1" stop-color="#4ea82c"/></linearGradient><linearGradient id="kk-land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffdc60"/><stop offset="1" stop-color="#f07820"/></linearGradient></defs><g stroke="#2a1438" stroke-width="2" stroke-linejoin="round" paint-order="stroke"><path fill="url(#kk-kith)" d="M2 10h6v3h-6zM14 10h6v3h-6zM2 13h6v3h-6zM11 13h6v3h-6zM2 16h12v3h-12zM2 19h9v3h-9zM2 22h12v3h-12zM2 25h6v3h-6zM11 25h6v3h-6zM2 28h6v3h-6zM14 28h6v3h-6zM24 8h6v3h-6zM24 11h6v3h-6zM24 14h6v3h-6zM24 17h6v3h-6zM24 20h6v3h-6zM24 23h6v3h-6zM24 26h6v3h-6zM34 10h18v3h-18zM34 13h18v3h-18zM40 16h6v3h-6zM40 19h6v3h-6zM40 22h6v3h-6zM40 25h6v3h-6zM40 28h6v3h-6zM56 11h6v3h-6zM68 11h6v3h-6zM56 14h6v3h-6zM68 14h6v3h-6zM56 17h6v3h-6zM68 17h6v3h-6zM56 20h18v3h-18zM56 23h6v3h-6zM68 23h6v3h-6zM56 26h6v3h-6zM68 26h6v3h-6zM56 29h6v3h-6zM68 29h6v3h-6z"/><path fill="url(#kk-land)" d="M78 9h6v3h-6zM78 12h6v3h-6zM78 15h6v3h-6zM78 18h6v3h-6zM78 21h6v3h-6zM78 24h6v3h-6zM78 27h15v3h-15zM100 11h12v3h-12zM97 14h6v3h-6zM109 14h6v3h-6zM97 17h6v3h-6zM109 17h6v3h-6zM97 20h18v3h-18zM97 23h6v3h-6zM109 23h6v3h-6zM97 26h6v3h-6zM109 26h6v3h-6zM97 29h6v3h-6zM109 29h6v3h-6zM119 9h6v3h-6zM131 9h6v3h-6zM119 12h9v3h-9zM131 12h6v3h-6zM119 15h9v3h-9zM131 15h6v3h-6zM119 18h18v3h-18zM119 21h6v3h-6zM128 21h9v3h-9zM119 24h6v3h-6zM128 24h9v3h-9zM119 27h6v3h-6zM131 27h6v3h-6zM141 10h15v3h-15zM141 13h6v3h-6zM153 13h6v3h-6zM141 16h6v3h-6zM153 16h6v3h-6zM141 19h6v3h-6zM153 19h6v3h-6zM141 22h6v3h-6zM153 22h6v3h-6zM141 25h6v3h-6zM153 25h6v3h-6zM141 28h15v3h-15z"/><path fill="#72c838" d="M23 1h1v1h-1zM24 1h1v1h-1zM22 2h1v1h-1zM23 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM21 3h1v1h-1zM22 3h1v1h-1zM23 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM29 3h1v1h-1zM30 3h1v1h-1zM22 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM28 4h1v1h-1zM29 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM25 5h1v1h-1zM27 5h1v1h-1zM28 5h1v1h-1zM29 5h1v1h-1zM30 5h1v1h-1zM28 6h1v1h-1zM29 6h1v1h-1z"/><path fill="#2e7a2c" d="M26 4h1v1h-1zM26 5h1v1h-1zM26 6h1v1h-1zM26 7h1v1h-1z"/></g></svg><span class="brand-sub">pocket</span></div>
+    <div class="area-left">
+      <div class="dpad" data-zone="dpad" aria-label="direction pad">
+        <svg class="cross" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <path id="kk-cross" d="M42,15A7,7 0 0 1 49,8L71,8A7,7 0 0 1 78,15L78,39A3,3 0 0 0 81,42L105,42A7,7 0 0 1 112,49L112,71A7,7 0 0 1 105,78L81,78A3,3 0 0 0 78,81L78,105A7,7 0 0 1 71,112L49,112A7,7 0 0 1 42,105L42,81A3,3 0 0 0 39,78L15,78A7,7 0 0 1 8,71L8,49A7,7 0 0 1 15,42L39,42A3,3 0 0 0 42,39Z"/>
+            <clipPath id="kk-cross-clip"><use href="#kk-cross"/></clipPath>
+            <linearGradient id="kk-cross-top" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4a4d58"/><stop offset=".55" stop-color="#33353e"/><stop offset="1" stop-color="#26272e"/>
+            </linearGradient>
+            <linearGradient id="kk-cross-rim" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity=".34"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="kk-cross-dish" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".45" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="kk-cross-hub" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#17181d"/><stop offset="1" stop-color="#3b3d47"/>
+            </linearGradient>
+          </defs>
+          <use href="#kk-cross" transform="translate(0 5)" fill="#121318"/>
+          <use href="#kk-cross" fill="url(#kk-cross-top)"/>
+          <g clip-path="url(#kk-cross-clip)">
+            <circle cx="60" cy="60" r="44" fill="url(#kk-cross-dish)"/>
+            <rect class="press" data-dir="up" x="42" y="0" width="36" height="42"/>
+            <rect class="press" data-dir="down" x="42" y="78" width="36" height="42"/>
+            <rect class="press" data-dir="left" x="0" y="42" width="42" height="36"/>
+            <rect class="press" data-dir="right" x="78" y="42" width="42" height="36"/>
+            <use href="#kk-cross" fill="none" stroke="url(#kk-cross-rim)" stroke-width="2.4"/>
+          </g>
+          <circle cx="60" cy="60" r="8.5" fill="url(#kk-cross-hub)" opacity=".75"/>
+          <g class="arrows">
+            <path d="M60,16.5L65.5,24L54.5,24Z"/><path d="M60,103.5L65.5,96L54.5,96Z"/>
+            <path d="M16.5,60L24,54.5L24,65.5Z"/><path d="M103.5,60L96,54.5L96,65.5Z"/>
+          </g>
+        </svg>
+        <img class="pic pic-dpad" src="./assets/dpad-mzx07fte.webp" alt="" decoding="async"><span class="sheet sheet-tilt"><img data-pic="dpad-tilts" alt="" decoding="async"></span>
+      </div>
+    </div>
+    <div class="area-right">
+      <div class="face" data-zone="face">
+        <img class="pic pic-face" src="./assets/face-q8z2qjsx.webp" alt="" decoding="async">
+        <span class="well well-x"><button class="fb fb-x" data-btn="x" aria-label="X"><b>X</b><span class="sheet sheet-press"><img data-pic="face-down" alt="" decoding="async"></span></button></span>
+        <span class="well well-y"><button class="fb fb-y" data-btn="y" aria-label="Y"><b>Y</b><span class="sheet sheet-press"><img data-pic="face-down" alt="" decoding="async"></span></button></span>
+        <span class="well well-a"><button class="fb fb-a" data-btn="a" aria-label="A"><b>A</b><span class="sheet sheet-press"><img data-pic="face-down" alt="" decoding="async"></span></button></span>
+        <span class="well well-b"><button class="fb fb-b" data-btn="b" aria-label="B"><b>B</b><span class="sheet sheet-press"><img data-pic="face-down" alt="" decoding="async"></span></button></span>
+      </div>
+    </div>
+    <div class="area-mid mid-l" data-zone="mid">
+      <div class="pill-wrap"><span class="slot"><button class="pill" data-btn="select" aria-label="Select"><img class="pic pic-pill" src="./assets/pill-4pdhpq2x.webp" alt="" decoding="async"><span class="sheet sheet-pill"><img data-pic="pill-down" alt="" decoding="async"></span></button></span><span class="pill-label">SELECT</span></div>
+    </div>
+    <div class="area-mid mid-r" data-zone="mid">
+      <div class="pill-wrap"><span class="slot"><button class="pill" data-btn="start" aria-label="Start"><img class="pic pic-pill" src="./assets/pill-4pdhpq2x.webp" alt="" decoding="async"><span class="sheet sheet-pill"><img data-pic="pill-down" alt="" decoding="async"></span></button></span><span class="pill-label">START</span></div>
+    </div>
+    <div class="grill" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><img class="pic pic-grill" src="./assets/grill-w8cvf64y.webp" alt="" decoding="async"></div>
+  </div>
+  <div class="edge edge-top" aria-hidden="true"></div><div class="edge edge-bottom" aria-hidden="true"></div>
+  <div class="hints">Move: arrows / WASD · A: Z or J · B: X or K (hold to run) · X: C · Y: V · START: Enter · SELECT: Shift</div>
+  <script>
+    // Before the first paint (the game's shell.ts does the same once it loads): ?screen=wide's screen shape, and the
+    // console's look (shell.css): the baked pictures (#console.shell-baked, the default); ?shell=3d the live 3D, which
+    // starts as the case without controls (.shell-pending) until its first frame; ?shell=css the flat CSS/SVG controls.
+    (function () {
+      var q = new URLSearchParams(location.search), r = document.documentElement.style;
+      if (q.get('screen') === 'wide') { r.setProperty('--screen-aspect', '240 / 160'); r.setProperty('--screen-ratio', '1.5'); r.setProperty('--screen-inv', String(160 / 240)); }
+      var look = q.get('shell'), c = document.getElementById('console').classList;
+      if (look === 'css') c.remove('shell-baked');
+      if (look === '3d') c.replace('shell-baked', 'shell-pending');
+      // a home-screen app (no Safari bands): shell.css lays the console out for an opaque status bar, or for an older
+      // install's translucent one (the page under it, white text)
+      if (navigator.standalone || matchMedia('(display-mode: standalone)').matches) document.documentElement.classList.add('standalone');
+    })();
+  </script>
+  
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"b9f121b4de954d719616a991474a4439","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
